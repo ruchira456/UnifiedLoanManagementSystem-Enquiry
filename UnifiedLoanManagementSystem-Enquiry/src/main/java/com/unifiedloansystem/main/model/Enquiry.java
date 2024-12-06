@@ -18,6 +18,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,16 +36,22 @@ public class Enquiry {
     private Long enquiryId;
 
     @NotBlank(message = "Customer full name is required")
+    @NotEmpty
+    @NotNull
     private String customerFullName;
 
     @NotBlank(message = "Contact number is required")
     @Pattern(regexp = "^\\d{10}$", message = "Contact number must be 10 digits")
-    private String contactNumber;
+    private long contactNumber;
 
     @Email(message = "Invalid email format")
+    @NotEmpty
+    @NotNull
     private String email;
 
     @NotBlank(message = "Loan type is required")
+    @NotEmpty
+    @NotNull
     private String loanType; // Housing, Small Business, Microservices, Car Loan
 
     @Min(value = 18, message = "Age must be at least 18")
@@ -52,6 +60,8 @@ public class Enquiry {
 
     @NotBlank(message = "PAN card is required")
     @Pattern(regexp = "[A-Z]{5}[0-9]{4}[A-Z]", message = "Invalid PAN card format")
+    @NotEmpty
+    @NotNull
     private String panCard;
 
     @CreationTimestamp
