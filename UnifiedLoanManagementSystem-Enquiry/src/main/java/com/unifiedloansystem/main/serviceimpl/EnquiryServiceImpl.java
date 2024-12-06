@@ -1,5 +1,7 @@
 package com.unifiedloansystem.main.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,10 @@ public class EnquiryServiceImpl implements EnquiryService {
 		
 		return enquiryRepository.save(enquiry);
 	}
-	
-	
+
+	@Override
+	public List<Enquiry> getAllEnquiries() {
+		return enquiryRepository.findAll();         // Fetches all enquiries from the database
+	}
 	
 }
