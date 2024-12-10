@@ -40,8 +40,8 @@ public class Enquiry {
     @NotNull
     private String customerFullName;
 
-    @NotBlank(message = "Contact number is required")
-    @Pattern(regexp = "^\\d{10}$", message = "Contact number must be 10 digits")
+   // @NotBlank(message = "Contact number is required")
+   // @Pattern(regexp = "^\\d{10}$", message = "Contact number must be 10 digits")
     private long contactNumber;
 
     @Email(message = "Invalid email format")
